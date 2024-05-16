@@ -1,14 +1,14 @@
 const router = require("express").Router();
 const uuid = require("uuid");
-const db = require("../lib/db_access");
+const dbAccess = require("../lib/db_access");
 const path = require("path");
 
 function createDBAccess() {
   const dbPath = path.join(__dirname + "/../db/db.json");
-  return new db.DB_Access(dbPath);
+  return new dbAccess.DB_Access(dbPath);
 }
 
-// The following is a route that will be used to add a note to the db
+// The following is a route that will be used to add a note to the DB
 router.post("/", async (req, res) => {
   const dbAccess = createDBAccess();
 
